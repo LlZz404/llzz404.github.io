@@ -143,4 +143,19 @@ figure img {
     }
 }
 
+/* Higher-specificity overrides to ensure images don't get overly large */
+body section#home .main-body img,
+body section#publications .main-body img,
+body section#awards .main-body img,
+body .main-body img,
+img.post-image {
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 75vh !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    object-fit: contain !important;
+}
+
 

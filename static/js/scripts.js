@@ -56,6 +56,17 @@ window.addEventListener('DOMContentLoaded', event => {
                 const html = marked.parse(markdown);
                 document.getElementById(name + '-md').innerHTML = html;
             }).then(() => {
+                // Normalize images inserted from markdown: remove inline width/height and add a class for styling
+                const container = document.getElementById(name + '-md');
+                if (container) {
+                    const imgs = container.getElementsByTagName('img');
+                    for (let i = 0; i < imgs.length; i++) {
+                        const img = imgs[i];
+                        img.removeAttribute('width');
+                        img.removeAttribute('height');
+                        img.classList.add('post-image');
+                    }
+                }
                 // MathJax
                 MathJax.typeset();
             })
