@@ -109,4 +109,38 @@ section .main-body{
     }
 }
 
+/* Improve content image display: responsive, max height, centered, and clearer */
+section .main-body img,
+.main-body img,
+article img,
+img.post-image {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 70vh; /* limit very tall images on large screens */
+    display: block;
+    margin: 1rem auto;
+    object-fit: contain; /* avoid cropping */
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+}
+
+/* Simple responsive image grid for multiple images */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+@media screen and (max-width: 576px) {
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
